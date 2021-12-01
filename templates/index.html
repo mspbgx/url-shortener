@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} URL's {% endblock %}</h1>
+    
+    {% for existing_url in existing_urls %}
+        <span class="badge badge-info">ID: <a href="{{ existing_url['id']}}">{{ existing_url['id']}}</a></span>
+        <span class="badge badge-info">Short-URL: <a href="{{ existing_url['short_url']}}">{{ existing_url['short_url']}}</a></span>
+        <span class="badge badge-info">Long-URL: <a href="{{ existing_url['long_url']}}">{{ existing_url['long_url']}}</a></span>
+        <a href="{{ url_for('index', id=existing_url['id']) }}">
+            <span class="badge badge-warning">Edit</span>
+        </a>
+        <p></p>
+        <!-- <hr> -->
+    {% endfor %}
+{% endblock %}
